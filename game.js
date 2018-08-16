@@ -8,7 +8,7 @@ let wrongLetters = [ ];
 
 document.addEventListener('keypress', function(e) {
   console.log(e.key)
-  cont letter= e.key.toLocaleLowerCase( );
+  const letter= e.key.toLocaleLowerCase( );
   currentGuesses.push(letter);
 
   if (guessesLeft<=0) {
@@ -21,11 +21,11 @@ document.addEventListener('keypress', function(e) {
     return;
   }
 
-   if currentWord.indexOf(letter)  !== -1) {
+   if (currentWord.indexOf(letter)  !== -1) {
    } else {
      guessesLeft--;
    }
-}
+})
 
 function randWord(arr) {
    return arr[Math.floor(Math.random() * arr.length)];
@@ -45,7 +45,7 @@ function displayValues ( ) {
   let wrongLetters = document.querySelector('#wrongLetters"');
 
   scoreT.innerhtml = score;
-  hword.innerHTML = hiddenWord();
+  hword.innerHTML = hidden_word();
   guessesLeft.innerHTML = guessesLeft;
   wrongLetters.innerHTML= wrongLetters.join();
 
@@ -77,4 +77,4 @@ document.onkeyup = function (event) {
       reset()
  }
 }
-  reset()
+  

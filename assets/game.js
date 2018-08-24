@@ -174,7 +174,6 @@ function roundComplete() {
     // Restart the game
     restartRound();
  }
-
 }
 
 //starts the game by running the startGame() function

@@ -47,7 +47,7 @@ function restartRound() {
   blanksAndSuccesses = [];
   // Here we *reset* the wrong guesses from the previous round.
   wrongGuesses = [];
-
+  
   for (var i = 0; i, numBlanks; i++) {
     blanksAndSuccesses.push("_");
   }
@@ -59,49 +59,13 @@ function restartRound() {
 
   // Clears the wrong guesses from the previous round.
   document.getElementById("wrongLetters").innerHTML = wrongLetters.join(" ");
-
-  // If our Word Guess string equals the solution.
-  // (meaning that we guessed all the letters to match the solution)...
-  if (lettersInChosenWord.toString() === blanksAndSuccesses.toString()) {
-
-    // Add to the win counter
-    winCounter++;
-
-    // Give the user an alert
-    alert("You win!");
-
-    // Update the win counter in the HTML
-    document.getElementById("win-counter").innerHTML = winCounter;
-
-    // Restart the game
-    restartRound();
-  }
-
-  // If we've run out of guesses
-  else if (numGuesses === 0) {
-
-    // Add to the loss counter
-    lossCounter++;
-
-    // Give the user an alert
-    alert("You lose");
-
-    // Update the loss counter in the HTML
-    document.getElementById("loss-counter").innerHTML = lossCounter;
-
-    // Restart the game
-    restartRound();
-
-  }
-
 }
-
 
 // Function where we will do all of the comparisons for matches.
 function alreadyGuessed(letter) {
   let letterInWord = false;
   for (let i = 0; i < numBlanks; i++) {
-    if (letter === currentWord[i]) {
+    if (currentWord[i] === letter)  {
       letterInWord = true;
     }
   }
@@ -109,7 +73,7 @@ function alreadyGuessed(letter) {
 
   //if the letter exists somewhere in the word, then we need to know where
   if (letterInWord) {
-    for (let i = 0; j < numBlanks; j++) {
+    for (let j = 0; j < numBlanks; j++) {
       if (currentWord[j] === letter) {
         blanksAndSuccesses[j] = letter;
       }

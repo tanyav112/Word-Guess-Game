@@ -47,12 +47,12 @@ function restartRound() {
   blanksAndSuccesses = [];
   // Here we *reset* the wrong guesses from the previous round.
   wrongGuesses = [];
-  
-  for (var i = 0; i, numBlanks; i++) {
+
+  for (var i = 0; i < numBlanks; i++) {
     blanksAndSuccesses.push("_");
   }
   // Reprints the guessesLeft to 10
-  document.getElementById('guessesLeft').innerHTML = numGuesses;
+  document.getElementById('guessesLeft').innerHTML = guessesLeft;
 
   // Prints the blanks at the beginning of each round in the HTML.
   document.getElementById("hidden_word").innerHTML = blanksAndSuccesses.join(" ");
@@ -90,11 +90,6 @@ function alreadyGuessed(letter) {
 // roundComplete() function
 // Here we will have all of the code that needs to be run after each guess is made.
 function roundComplete() {
-
-  // First, log an initial status update in the console
-  // telling us how many wins, losses, and guesses are left.
-  console.log("WinCount: " + winCounter + " | LossCount: " + lossCounter + " | NumGuesses: " + guessesLeft);
-
 
 
   // Update the HTML to reflect the new number of guesses.
